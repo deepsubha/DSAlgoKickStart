@@ -1,0 +1,1 @@
+This is to note down some important notes about Arrays. 
