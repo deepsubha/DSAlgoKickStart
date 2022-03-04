@@ -38,3 +38,41 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
 It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 */
+
+/* *Proposed Solution */
+
+class Solution {
+    public int romanToInt(String s) {
+        int integerVal=0;
+        Map<Character, Integer> r2i = new HashMap<Character, Integer>();
+        r2i.put('I', 1);
+        r2i.put('V', 5);
+        r2i.put('X', 10);
+        r2i.put('L', 50);
+        r2i.put('C', 100);
+        r2i.put('D', 500);
+        r2i.put('M', 1000);
+
+        Map<Character, List<Character>> prePlaced = new HashMap<Character, List<Character>>();
+        prePlaced.put('I',Arrays.asList('V', 'X'));
+        prePlaced.put('X',Arrays.asList('L', 'C'));
+        prePlaced.put('C',Arrays.asList('D', 'M'));
+        
+        for(int i=0; i<s.length(); i++){
+            if(i != s.length() -1){
+                if(prePlaced.get(s.charAt(i)) != null &&
+                   prePlaced.get(s.charAt(i)).contains(s.charAt(i+1)) 
+                   ){
+                    integerVal += r2i.get(s.charAt(i+1)) - r2i.get(s.charAt(i));
+                    i++;
+                }else{
+                    integerVal+= r2i.get(s.charAt(i));
+                }
+            }else{
+                integerVal+= r2i.get(s.charAt(i));
+            }
+        }
+        return integerVal;
+    }
+}
+
