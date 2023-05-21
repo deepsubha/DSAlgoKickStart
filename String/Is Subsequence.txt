@@ -1,0 +1,45 @@
+/*
+Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
+
+A subsequence of a string is a new string that is formed from the original string by deleting some 
+(can be none) of the characters without disturbing the relative positions of the remaining characters. 
+(i.e., "ace" is a subsequence of "abcde" while "aec" is not).
+
+Test Cases:
+TC 1:
+Input: s = "abc", t = "ahbgdc"
+Output: true
+
+TC 2:
+Input: s = "axc", t = "ahbgdc"
+Output: false
+
+Constraints:
+
+0 <= s.length <= 100
+0 <= t.length <= 104
+s and t consist only of lowercase English letters.
+*/
+
+/* *Proposed Solution */
+class Solution {
+    public boolean isSubsequence(String s, String t) {
+        int j , buffer = 0;
+        if(s.length() == 0) return true;
+        for(int i=0; i< s.length(); i++){
+            for(j=buffer; j< t.length(); j++){
+                buffer = j+1;
+                if(s.charAt(i) == t.charAt(j)){
+                    //(i == s.length()-1) ? return true: break; 
+                    // Ternery accepts only expression not statement like break, return(these are statements) & both if and if_not should have same data types
+                    if(i == s.length()-1) return true;
+                    break;
+                }  
+            }
+
+            if(j == t.length()) return false;
+        }
+        
+        return false;
+    }
+}
