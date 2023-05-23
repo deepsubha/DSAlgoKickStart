@@ -1,4 +1,8 @@
-/*This is a Utility class for Error Logs/ frameworks */
+/*
+ * @description This is a Utility class for Error Logs/ frameworks/ re-using error messages etc.
+ * Createdby      CreatedDate       Version
+ * Subhadeep      24May2023         <first>
+ */
 public class ErrorLogsUtility {
     public String className;
     public String module;
