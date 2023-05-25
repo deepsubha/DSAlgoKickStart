@@ -29,6 +29,13 @@ class SingleLinkedList{
         root = operations.displayList(root);
         root = operations.updateNode(root, 56534, 65);
         root = operations.displayList(root);
+
+        root = operations.addNode(root, 80);
+        root = operations.addNode(root, 70);
+        /*6. Reverse of a single linked list */
+        root = operations.displayList(root);
+        root = operations.reverseSL(root);
+        root = operations.displayList(root);
     }
     /*-------------------------------------main class end here-------------------------------- */
 
@@ -149,6 +156,29 @@ class SingleLinkedList{
             err.doLog();
         }
         return root;
+    }
+
+    /*
+     * @description This is to reverse of a Single Linked List
+     * @param root - (Node)the head of the linked list
+     * @return - (Node) head of the Node
+     */
+    private Node reverseSL (Node root) {
+        if(root == null) {
+            System.out.println(ErrorLogsUtility.EMPTY_LIST); 
+            return null;
+        }
+
+        Node prevNode = null;
+        Node head = root;
+        Node nextNode = null;
+        while(head != null) {
+            nextNode = head.next;
+            head.next = prevNode;
+            prevNode = head;
+            head = nextNode;
+        }
+        return prevNode;
     }
  
 }
