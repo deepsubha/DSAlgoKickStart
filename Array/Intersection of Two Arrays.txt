@@ -1,0 +1,41 @@
+/* Intersection of Two Arrays
+Given two integer arrays nums1 and nums2, return an array of their intersection. Each element in the result must be unique and you may return the result in any order.
+
+Test Cases:
+TC 1:
+Input: nums1 = [1,2,2,1], nums2 = [2,2]
+Output: [2]
+
+TC 2:
+Input: nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+Output: [9,4]
+Explanation: [4,9] is also accepted.
+
+Constraints:
+
+1 <= nums1.length, nums2.length <= 1000
+0 <= nums1[i], nums2[i] <= 1000
+*/
+/* *Proposed Solution*/
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> numberCount = new HashMap<Integer, Integer>(); //[number= count]
+        List<Integer> result = new ArrayList<Integer>();
+        for(int i: nums1){
+            if(numberCount.containsKey(i)) numberCount.put(i, numberCount.get(i)+1);
+            else numberCount.put(i, 1);
+        }
+        
+        for(int i:nums2){
+            if(numberCount.containsKey(i)) 
+                if(!result.contains(i)) result.add(i);
+        }
+        
+        //return result.toArray((int)new Integer[0]);
+        int[] res = new int[result.size()];
+        for(int i=0; i<result.size(); i++) res[i] = result.get(i);
+        return res;
+        
+        //return result.stream().mapToInt(Integer::intValue).toArray();   -----> This will also work but with same time complexity.
+    }
+}
