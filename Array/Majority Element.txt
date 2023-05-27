@@ -1,0 +1,44 @@
+/* Majority Element
+Given an array nums of size n, return the majority element.
+
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+Test Cases:
+TC 1:
+Input: nums = [3,2,3]
+Output: 3
+
+TC 2:
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+
+Constraints:
+
+n == nums.length
+1 <= n <= 5 * 104
+-109 <= nums[i] <= 109
+*/
+
+/* *Proposed Solution */
+class Solution {
+    public int majorityElement(int[] nums) {
+        Map<Integer, Integer> numberCount = new HashMap<Integer, Integer>(); //[nums[i] = count]
+        for(int i=0; i<nums.length; i++){
+            if(numberCount.containsKey(nums[i]))
+                numberCount.put(nums[i], numberCount.get(nums[i])+1);
+            else
+                numberCount.put(nums[i], 1);
+        }
+        
+        int majorityElement = nums[0];
+        int count = 1;
+        for(Map.Entry m: numberCount.entrySet()){
+            if((int)m.getValue() > count){
+                count = (int)m.getValue();
+                majorityElement = (int)m.getKey();
+            }            
+        }
+        
+        return majorityElement;
+    }
+}
