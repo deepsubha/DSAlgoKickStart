@@ -1,9 +1,9 @@
 # DSAlgoKickStart
+
 This is a repository for practice of Data Structure and Algorithm concepts.
 
 
 ## Folder Structure
-
 
 **Algorithms**: contains pseudocode of searching,sorting and other popular algorithms.
 
