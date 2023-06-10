@@ -36,7 +36,7 @@ public class BSTOpertions {
 
     }
     /*Insert Operation in BST each node */
-    private Node insertNode (Node node, int key) {
+    public Node insertNode (Node node, int key) {
         if(node == null){ Node singleNode = new Node(key); return singleNode; }
         if(node.key >  key) node.left = insertNode(node.left, key);
         else if(node.key < key) node.right = insertNode(node.right, key);
@@ -44,7 +44,7 @@ public class BSTOpertions {
     }
 
     /*Node class to create each node in a BST */
-    class Node {
+    public class Node {
         int key;
         Node left, right;
         Node (int data) {
