@@ -1,4 +1,4 @@
-// problem link: https://practice.geeksforgeeks.org/contest/gfg-weekly-coding-contest-105/instructions/#
+ [problem] (https://practice.geeksforgeeks.org/contest/gfg-weekly-coding-contest-105/instructions/#)
 /* 
  Intuition: for every index we hace 2 choices, either to add it to the current
  distance covered(run clockwise) or to subtract it from the current distance
