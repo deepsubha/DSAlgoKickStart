@@ -7,7 +7,6 @@
          20   40  60   80
  * 1. All Leaf Nodes
  * 2. All Non Leaf Nodes
- * 3. Delete a Node
  */
 public class BSTPrintLeafNodes {
     public static void main(String[] args) {
@@ -24,8 +23,6 @@ public class BSTPrintLeafNodes {
         /*1. All Non Leaf Nodes */
         ops.printNonLeafNodes(root);
         System.out.println();
-        /**Delete a Node (3 conditions. i. Leaf Node ii. single child iii. has both the childrens ) */
-        root = ops.deleteNode(root, key);
     }
     /*create BST */
     private BSTOpertions.Node createTree (int[] nodes) {
