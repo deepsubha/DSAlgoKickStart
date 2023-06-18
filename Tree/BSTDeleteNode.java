@@ -76,12 +76,13 @@ public class BSTDeleteNode {
             else if(root.left == null) return root.right;
         }
         //case 3: it has both the children 
-        
+
             //BSTOpertions.Node delNode = root;  //succParent
             BSTOpertions.Node rightSubTreeRoot = root.right;
             //if there is no left node of right sub tree
             if(rightSubTreeRoot.left == null){
-                root.right = rightSubTreeRoot.right;
+                root.right = rightSubTreeRoot.right; // basically root.right = root.right.right 
+                root.key = rightSubTreeRoot.key; //copying rightsubtree value
                 return root;
             }
 
