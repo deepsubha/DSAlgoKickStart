@@ -1,4 +1,4 @@
-[problem] (https://practice.geeksforgeeks.org/contest/gfg-weekly-coding-contest-102/problems/#)
+//problem link: https://practice.geeksforgeeks.org/contest/gfg-weekly-coding-contest-102/problems/#
 
 //data structure used: Arrays
 

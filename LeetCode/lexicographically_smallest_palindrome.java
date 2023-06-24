@@ -1,4 +1,4 @@
- [problem] (https://leetcode.com/problems/lexicographically-smallest-palindrome/) 
+ //problem link: https://leetcode.com/problems/lexicographically-smallest-palindrome/
 
 /*
  * Intuition:
