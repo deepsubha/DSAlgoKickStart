@@ -2,58 +2,36 @@
 /*
  * Intuition:
  * ------------
- * we store the freq. of each digit in the string and then traverse the
- * whole string to check each consecutive characters
+ * we traverse the entire string and ignore the 1st duplicate found,
+ * as one duplicate is allowed.For any more duplicates found we update
+ * the pointer 'i' to point to the last duplicate found
  * 
  * Complexity:
  * -------------
- * T.C: O(n^2)
+ * T.C: O(n)
  * S.C: O(1)
  */
 
 class Solution {
     public int longestSemiRepetitiveSubstring(String s) {
         
-        int ans = -1;
-        
-        int n = s.length();
-        
-        for(int i=0;i<n-1;i++){
-            
-            if(n-i<ans) return ans;
-            
-            int[] freq = new int[10];
-            
-            int digit = s.charAt(i)-'0';
-            
-            freq[digit]++;
-            
-            int j,count = 0;
-            
-            
-            for(j=i+1;j<n;j++){
-                int digit1 = s.charAt(j)-'0';
-                int digit2 = s.charAt(j-1)-'0';
+        int i=0,j=1,ans = 1,last=0;
+
+        for(j=1;j<s.length();j++){
+
+            if(s.charAt(j)==s.charAt(j-1)){
                 
-                int temp=freq[digit1];
-                
-                if(digit1==digit2 || freq[digit1]==0){
-                    freq[digit1]++;
-                }                
-                
-                
-                if(freq[digit1]>temp && freq[digit1]>1) count++;
-                
-                if(count>1){
-                    
-                    ans = Math.max(ans,j-i);
-                    
-                    break;
+                if(last!=0){ 
+                    i = last; //if already one duplicate found earlier,we point 'i' to the last duplicate
                 }
+                last = j; //for first time repitition we just update the last variable,as one duplicate is allowed
+                
             }
-            if(count<=1) ans = Math.max(ans,j-i);
+
+            ans = Math.max(ans,j-i+1);
+
         }
-        
-        return ans==-1?1:ans;
+
+        return ans;
     }
 }
